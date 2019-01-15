@@ -1,16 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Space : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public Button button;
+    public Text buttonText;
+
+    private GameController gameController;
+
+    public void SetControllerReference(GameController control)
+    {
+        gameController = control;
+    }
+
+
+    public void SetSpace()
+    {
+        buttonText.text = gameController.GetSide();
+        button.interactable = false;
+        gameController.EndTurn();
+    }
+
 }
